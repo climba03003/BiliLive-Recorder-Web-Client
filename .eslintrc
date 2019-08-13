@@ -1,0 +1,57 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": [
+      "warn",
+      2,
+      {
+        "VariableDeclarator": {
+          "var": 2,
+          "let": 2,
+          "const": 3
+        },
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": ["error", "windows"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "semi-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+
+    "comma-dangle": ["error", "never"],
+    "no-cond-assign": ["error", "always"],
+
+    "no-var": "error",
+
+    "no-console": "off",
+    "no-unused-vars": "warn",
+    "no-sync": "warn",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+
+    "handle-callback-err": "error",
+
+    "multiline-ternary": ["error", "never"],
+
+    // Too Much False Positive
+    "require-atomic-updates": "off"
+  }
+}

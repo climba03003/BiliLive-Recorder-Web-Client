@@ -1,0 +1,22 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/bililive-recorder-app.js",
+  "sources": ["images/**/*"],
+  "extraDependencies": [
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/*.js",
+    "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
+  ],
+  "builds": [
+    {
+      "name": "es6-unbundle",
+      "preset": "es6-unbundle"
+    }
+  ],
+  "moduleResolution": "node",
+  "npm": true,
+  "lint": {
+    "rules": ["polymer-3"]
+  }
+}
