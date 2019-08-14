@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","acffb4d29cd3c23b3215581ffabb6920"],["manifest.json","d318ae1e479c6dd478c72a0f81083a88"],["src/bililive-recorder-app.js","45508fc43624d08ea026bf397117f80a"],["src/panels/log-panel.js","199b5218a0a854ac2b29206bd5df002e"],["src/panels/record-list-panel.js","6b1f71a770ec024268ac331ac819bb78"],["src/panels/setting-panel.js","fa2b7381f9c3cc0cd4840acb668b236c"]];
+var precacheConfig = [["index.html","9a37aa9d52b5b161ba0b9996eff30cf4"],["manifest.json","d318ae1e479c6dd478c72a0f81083a88"],["src/bililive-recorder-app.js","431c89d551451d73f9ab4e7d4780ccdd"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
