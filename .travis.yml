@@ -11,7 +11,7 @@ before_script:
 script:
   - polymer build
 deploy:
-  provider: gh-pages
+  provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
