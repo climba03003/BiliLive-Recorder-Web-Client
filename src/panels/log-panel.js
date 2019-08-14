@@ -1,9 +1,4 @@
-import { PolymerElement, html } from "../../node_modules/@polymer/polymer/polymer-element.js";
-import "../../node_modules/@vaadin/vaadin-text-field/vaadin-text-area.js";
-
-class LogPanel extends PolymerElement {
-  static get template() {
-    return html`
+define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_modules/@vaadin/vaadin-text-field/vaadin-text-area.js"],function(_polymerElement,_vaadinTextArea){"use strict";class LogPanel extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
           padding: var(--lumo-space-s);
@@ -16,9 +11,4 @@ class LogPanel extends PolymerElement {
         }
       </style>
       <vaadin-text-area></vaadin-text-area>
-    `;
-  }
-
-}
-
-window.customElements.define('log-panel', LogPanel);
+    `}}window.customElements.define("log-panel",LogPanel)});

@@ -1,11 +1,4 @@
-import { PolymerElement, html } from "../../node_modules/@polymer/polymer/polymer-element.js";
-import "../../node_modules/@vaadin/vaadin-grid/vaadin-grid.js";
-import "../../node_modules/@vaadin/vaadin-button/vaadin-button.js";
-import { RecordData, SampleRecordData } from "../../assets/schemas/RecordData.js";
-
-class RecordListPanel extends PolymerElement {
-  static get template() {
-    return html`
+define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_modules/@vaadin/vaadin-grid/vaadin-grid.js","../../node_modules/@vaadin/vaadin-button/vaadin-button.js","../../assets/schemas/RecordData.js"],function(_polymerElement,_vaadinGrid,_vaadinButton,_RecordData){"use strict";class RecordListPanel extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
           display: flex;
@@ -47,48 +40,4 @@ class RecordListPanel extends PolymerElement {
         </vaadin-grid-column>
         <vaadin-grid-column path="clipCount" header="剪辑数量" text-align="center"></vaadin-grid-column>
       </vaadin-grid>
-    `;
-  }
-
-  static get properties() {
-    return {
-      recordDatas: {
-        type: Array,
-        notify: true,
-        value: () => {
-          return RecordData.create(SampleRecordData);
-        }
-      },
-      selectedRecordData: {
-        type: Object,
-        notify: true
-      }
-    };
-  }
-
-  onGridActiveItemChanged(evt) {
-    const recordDataGrid = this.shadowRoot.querySelector('vaadin-grid');
-    const selectedItem = evt.detail.value;
-    recordDataGrid.selectedItems = selectedItem ? [selectedItem] : [];
-    this.set('selectedRecordData', selectedItem);
-  }
-
-  displayStatus(status) {
-    switch (status) {
-      case 'monitoring':
-        return '监控中';
-
-      case 'recording':
-        return '录制中';
-
-      case 'free':
-        return '闲置中';
-
-      default:
-        return '';
-    }
-  }
-
-}
-
-window.customElements.define('record-list-panel', RecordListPanel);
+    `}static get properties(){return{recordDatas:{type:Array,notify:!0,value:()=>{return _RecordData.RecordData.create(_RecordData.SampleRecordData)}},selectedRecordData:{type:Object,notify:!0}}}onGridActiveItemChanged(evt){const recordDataGrid=this.shadowRoot.querySelector("vaadin-grid"),selectedItem=evt.detail.value;recordDataGrid.selectedItems=selectedItem?[selectedItem]:[];this.set("selectedRecordData",selectedItem)}displayStatus(status){switch(status){case"monitoring":return"\u76D1\u63A7\u4E2D";case"recording":return"\u5F55\u5236\u4E2D";case"free":return"\u95F2\u7F6E\u4E2D";default:return"";}}}window.customElements.define("record-list-panel",RecordListPanel)});
