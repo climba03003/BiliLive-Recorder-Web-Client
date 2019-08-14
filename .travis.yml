@@ -10,6 +10,8 @@ before_script:
   - npm install -g polymer-cli
   - rm -f /home/travis/build/climba03003/BiliLive-Recorder-Web-Client/index.html
   - mv /home/travis/build/climba03003/BiliLive-Recorder-Web-Client/index.travis.html /home/travis/build/climba03003/BiliLive-Recorder-Web-Client/index.html
+  - rm -f /home/travis/build/climba03003/BiliLive-Recorder-Web-Client/manifest.json
+  - mv /home/travis/build/climba03003/BiliLive-Recorder-Web-Client/manifest.travis.json /home/travis/build/climba03003/BiliLive-Recorder-Web-Client/manifest.json
 script:
   - polymer build
 deploy:
