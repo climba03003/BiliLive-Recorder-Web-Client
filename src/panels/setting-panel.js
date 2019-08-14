@@ -1,9 +1,7 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element'
-
-import '@vaadin/vaadin-form-layout/vaadin-form-layout'
-import '@vaadin/vaadin-text-field/vaadin-text-field'
-
-import '@vaadin/vaadin-button/vaadin-button'
+import { PolymerElement, html } from "../../node_modules/@polymer/polymer/polymer-element.js";
+import "../../node_modules/@vaadin/vaadin-form-layout/vaadin-form-layout.js";
+import "../../node_modules/@vaadin/vaadin-text-field/vaadin-text-field.js";
+import "../../node_modules/@vaadin/vaadin-button/vaadin-button.js";
 
 class SettingPanel extends PolymerElement {
   static get template() {
@@ -50,7 +48,7 @@ class SettingPanel extends PolymerElement {
         <vaadin-button colspan="1" on-click="onClickEnableAllAutoRec">启用所有直播间</vaadin-button>
         <vaadin-button colspan="1" on-click="onClickDisableAllAutoRec" theme="error">禁用所有直播间</vaadin-button>
       </vaadin-form-layout>
-    `
+    `;
   }
 
   static get properties() {
@@ -60,85 +58,93 @@ class SettingPanel extends PolymerElement {
         notify: true
       },
       addRoomId: Number
-    }
+    };
   }
 
   onClickEnableAutoRec() {
     this.dispatchCustomEvent('auto-rec-changed', {
       value: true,
       roomId: this.selectedRecordData.roomId
-    })
+    });
   }
 
   onClickDisableAutoRec() {
     this.dispatchCustomEvent('auto-rec-changed', {
       value: false,
       roomId: this.selectedRecordData.roomId
-    })
+    });
   }
 
   onClickTriggerRec() {
     this.dispatchCustomEvent('rec-changed', {
       value: true,
       roomId: this.selectedRecordData.roomId
-    })
+    });
   }
 
   onClickCutRec() {
     this.dispatchCustomEvent('rec-changed', {
       value: false,
       roomId: this.selectedRecordData.roomId
-    })
+    });
   }
 
   onClickRemoveRecRoom() {
     this.dispatchCustomEvent('remove-room', {
       value: this.selectedRecordData.roomId
-    })
+    });
   }
 
   onClickAddRoom() {
     this.dispatchCustomEvent('add-room', {
       value: this.addRoomId
-    })
+    });
   }
 
   onClickEnableAllAutoRec() {
     this.dispatchCustomEvent('all-auto-rec-changed', {
       value: true
-    })
+    });
   }
 
   onClickDisableAllAutoRec() {
     this.dispatchCustomEvent('all-auto-rec-changed', {
       value: false
-    })
+    });
   }
 
   displayStatus(status) {
     switch (status) {
       case 'monitoring':
-        return '监控中'
+        return '监控中';
+
       case 'recording':
-        return '录制中'
+        return '录制中';
+
       case 'free':
-        return '闲置中'
+        return '闲置中';
+
       default:
-        return ''
+        return '';
     }
   }
 
   displayDownloadSpeedKiBps(downloadSpeedKiBps) {
-    return downloadSpeedKiBps ? `${downloadSpeedKiBps} KiB/s` : ''
+    return downloadSpeedKiBps ? `${downloadSpeedKiBps} KiB/s` : '';
   }
 
   displayDownloadSpeedPersentage(downloadSpeedPersentage) {
-    return downloadSpeedPersentage ? `${downloadSpeedPersentage} %` : ''
+    return downloadSpeedPersentage ? `${downloadSpeedPersentage} %` : '';
   }
 
   dispatchCustomEvent(eventName, detail, bubbles = true, composed = true) {
-    this.dispatchEvent(new CustomEvent(eventName, { detail: detail, bubbles: bubbles, composed: composed }))
+    this.dispatchEvent(new CustomEvent(eventName, {
+      detail: detail,
+      bubbles: bubbles,
+      composed: composed
+    }));
   }
+
 }
 
-window.customElements.define('setting-panel', SettingPanel)
+window.customElements.define('setting-panel', SettingPanel);

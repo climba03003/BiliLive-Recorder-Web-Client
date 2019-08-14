@@ -1,9 +1,7 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element'
-
-import '@vaadin/vaadin-grid/vaadin-grid'
-import '@vaadin/vaadin-button/vaadin-button'
-
-import { RecordData, SampleRecordData } from '../../assets/schemas/RecordData'
+import { PolymerElement, html } from "../../node_modules/@polymer/polymer/polymer-element.js";
+import "../../node_modules/@vaadin/vaadin-grid/vaadin-grid.js";
+import "../../node_modules/@vaadin/vaadin-button/vaadin-button.js";
+import { RecordData, SampleRecordData } from "../../assets/schemas/RecordData.js";
 
 class RecordListPanel extends PolymerElement {
   static get template() {
@@ -49,7 +47,7 @@ class RecordListPanel extends PolymerElement {
         </vaadin-grid-column>
         <vaadin-grid-column path="clipCount" header="剪辑数量" text-align="center"></vaadin-grid-column>
       </vaadin-grid>
-    `
+    `;
   }
 
   static get properties() {
@@ -58,35 +56,39 @@ class RecordListPanel extends PolymerElement {
         type: Array,
         notify: true,
         value: () => {
-          return RecordData.create(SampleRecordData)
+          return RecordData.create(SampleRecordData);
         }
       },
       selectedRecordData: {
         type: Object,
         notify: true
       }
-    }
+    };
   }
 
   onGridActiveItemChanged(evt) {
-    const recordDataGrid = this.shadowRoot.querySelector('vaadin-grid')
-    const selectedItem = evt.detail.value
-    recordDataGrid.selectedItems = selectedItem ? [selectedItem] : []
-    this.set('selectedRecordData', selectedItem)
+    const recordDataGrid = this.shadowRoot.querySelector('vaadin-grid');
+    const selectedItem = evt.detail.value;
+    recordDataGrid.selectedItems = selectedItem ? [selectedItem] : [];
+    this.set('selectedRecordData', selectedItem);
   }
 
   displayStatus(status) {
     switch (status) {
       case 'monitoring':
-        return '监控中'
+        return '监控中';
+
       case 'recording':
-        return '录制中'
+        return '录制中';
+
       case 'free':
-        return '闲置中'
+        return '闲置中';
+
       default:
-        return ''
+        return '';
     }
   }
+
 }
 
-window.customElements.define('record-list-panel', RecordListPanel)
+window.customElements.define('record-list-panel', RecordListPanel);

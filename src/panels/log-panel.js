@@ -1,6 +1,5 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element'
-
-import '@vaadin/vaadin-text-field/vaadin-text-area'
+import { PolymerElement, html } from "../../node_modules/@polymer/polymer/polymer-element.js";
+import "../../node_modules/@vaadin/vaadin-text-field/vaadin-text-area.js";
 
 class LogPanel extends PolymerElement {
   static get template() {
@@ -17,8 +16,9 @@ class LogPanel extends PolymerElement {
         }
       </style>
       <vaadin-text-area></vaadin-text-area>
-    `
+    `;
   }
+
 }
 
-window.customElements.define('log-panel', LogPanel)
+window.customElements.define('log-panel', LogPanel);
