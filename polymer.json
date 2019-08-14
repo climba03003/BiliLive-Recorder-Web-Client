@@ -10,6 +10,10 @@
   ],
   "builds": [
     {
+      "name": "travis",
+      "preset": "es5-bundled"
+    },
+    {
       "name": "es6-unbundled",
       "preset": "es6-unbundled"
     }
