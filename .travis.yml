@@ -8,6 +8,8 @@ cache:
     - node_modules
 before_script:
   - npm install -g polymer-cli
+  - rm -f /home/travis/BiliLive-Recorder-Web-Client/index.html
+  - mv /home/travis/BiliLive-Recorder-Web-Client/index.travis.html /home/travis/BiliLive-Recorder-Web-Client/index.html
 script:
   - polymer build
 deploy:
@@ -15,6 +17,6 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-  local_dir: build/es6-unbundle
+  local_dir: build/es6-unbundled
   on:
     branch: master

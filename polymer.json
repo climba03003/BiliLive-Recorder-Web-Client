@@ -10,8 +10,8 @@
   ],
   "builds": [
     {
-      "name": "es6-unbundle",
-      "preset": "es6-unbundle"
+      "name": "es6-unbundled",
+      "preset": "es6-unbundled"
     }
   ],
   "moduleResolution": "node",
